@@ -2,23 +2,47 @@
 
 ## 被网暴了，怎么办？
 
-一套给 Claude Code 用的公关舆情应对技能包。覆盖 10 种危机类型，包含应对方案、文案模板、方法论和自动化监测。
+一套给 Claude Code 用的公关舆情应对技能包。覆盖 11 种危机类型，包含应对方案、文案模板、方法论、自动化监测和实时舆情扫描。
 
-**只要把项目文件放到 `~/.claude/skills/` 下，遇到危机直接对话，Claude Code 自动匹配方案。**
+**直接对话：「出事了」「帮我扫描一下XX品牌的舆情」「搜一下今天XX有没有新动态」——Claude Code 自动匹配方案或联网扫描。**
 
 ---
 
 ## 快速安装
 
 ```bash
-git clone https://github.com/你的用户名/pr-crisis-skill.git ~/.claude/skills/pr-crisis-management
+git clone https://github.com/qcmcbw7qm2-svg/ziyu.git ~/.claude/skills/ziyu
 ```
 
-然后在 Claude Code 里说「我被挂了」「出事了怎么办」，Claude 会自动加载技能包。
+## 三种用法
+
+### 1. 危机应对
+
+发生危机时直接对话：
+
+```
+「我被挂了」「竞品在抖音发视频黑我」「门店出事被拍了」
+```
+
+Claude Code 自动匹配 playbook → 评估严重程度 → 输出应对方案 + 声明草稿 + 执行清单。
+
+### 2. 舆情监控（实时扫描）
+
+```
+「扫描一下XX品牌的最新舆论」
+「今天关于XX有没有新的负面」
+「搜一下XX事件有没有被其他媒体跟进」
+```
+
+Claude Code 联网搜索各平台 → 输出结构化扫描报告：传播态势、评论区风向、风险信号、当前状态评估。
+
+### 3. 定时监控（自动化）
+
+配置后无人值守自动扫。每分钟都有最新的舆情报告等着你看。详见 `monitoring/automation.md`。
 
 ## 包含什么
 
-### 10 种危机应对方案（playbooks/）
+### 11 种危机应对方案（playbooks/）
 
 | 类型 | 文件 | 适用场景 |
 |------|------|----------|
@@ -32,15 +56,16 @@ git clone https://github.com/你的用户名/pr-crisis-skill.git ~/.claude/skill
 | 网络暴力 | `online-mob.md` | 个人被挂、人肉搜索、组织性网暴 |
 | 被大V引导网暴 | `creator-mob.md` | 小博主被大V断章取义、偷换概念、粉丝涌入攻击 |
 | 创作者失言翻车 | `celebrity-gaffe.md` | 说错话被营销号上纲上线、大面积脱粉、封杀风险 |
+| 餐饮食品安全 | `food-safety.md` | 门店卫生被曝光、宠物/异物进入就餐区、顾客餐后不适 |
 
 每个 playbook 包含：严重程度四级判定 → 冷静期操作 → 信息收集清单 → 定性判断矩阵 → 回应策略 → 执行清单 → 恢复时间表。
 
 ### 4 种公关文案模板（templates/）
 
-- 道歉声明（apology）
-- 澄清公告（clarification）
-- 否认声明（denial）
-- 律师函（legal-warning）
+- 道歉声明（apology）— 情况属实时的道歉
+- 澄清公告（clarification）— 部分属实时的说明
+- 否认声明（denial）— 完全失实时的否认
+- 律师函（legal-warning）— 法律手段介入
 
 半成品模板，留占位符 `【】`，根据具体情况填充。禁用套话，只写人话。
 
@@ -48,12 +73,18 @@ git clone https://github.com/你的用户名/pr-crisis-skill.git ~/.claude/skill
 
 - `sop.md` — 监测操作指南：监测对象、频率、评论区风向分类、升级阈值、记录模板
 - `automation.md` — 定时自动化方案：cron/launchd 配置、告警规则、与 playbook 联动
+- **直接对话「扫描XX的最新舆情」→ Claude Code 联网搜索 + 输出结构化报告**
 
 ### 方法论（knowledge/）
 
-- `why-crisis-pr-fails.md` — 9 种经典公关败局复盘（奔驰/碧桂园/滴滴/携程等）
-- `response-principles.md` — 通用回应原则
-- `spread-patterns.md` — 谣言/舆情传播规律
+- `pr-fundamentals.md` — 公关底层认知：公关定义、利益相关方理论、佩奇原则、媒体误区
+- `why-crisis-pr-fails.md` — 9 种经典败局复盘（奔驰/碧桂园/滴滴/携程/鸿茅药酒等）
+- `response-principles.md` — 4A 道歉法、危机生命周期、危机等级与响应路径
+- `spread-patterns.md` — 舆情传播规律
+
+### 案例库（cases/）
+
+- `catering-pet-incident.md` — 连锁餐饮宠物事件完整复盘，含可视化流程图
 
 ---
 
