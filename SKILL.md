@@ -4,11 +4,48 @@
 
 ## 触发场景
 
-- 用户说「出事了」「被黑了」「被挂了」「被网暴」「被曝光」
-- 用户提供负面舆情截图/链接，要求分析应对
-- 用户要求做舆情监控、定时扫描
-- 用户提到「危机公关」「发声明」「回应舆论」
-- 关键词：舆情、危机、网暴、负面、曝光、道歉、声明、起诉
+### 中文触发词
+
+**紧急求助型**：
+「出事了」「被黑了」「被挂了」「被网暴」「被曝光」「被拍了」
+「上热搜了」「炸了」「翻车了」「塌房了」「被冲了」
+「怎么办」「怎么回应」「怎么处理」「帮我分析一下」
+
+**具体危机类型**（→ 对应 playbook）：
+「产品被投诉/曝光/召回」→ product-quality
+「老板/创始人/CEO说错话/翻车/被挂」→ boss-gaffe
+「竞品/同行抹黑/黑稿/水军/差评」→ competitor-smear
+「客户投诉/维权/退货/差评爆了」→ customer-complaint
+「员工/前员工爆料/内幕」→ employee-scandal
+「被罚款/被约谈/被调查/监管/工商」→ regulatory-trouble
+「谣言/假消息/P图/造谣/被传」→ viral-misinfo
+「网暴/人肉/被挂/私信攻击/电话骚扰」→ online-mob
+「大V/博主/网红挂我/带节奏/引导粉丝」→ creator-mob
+「说错话/失言/塌房/脱粉/封杀/道歉信」→ celebrity-gaffe
+「门店出事/后厨/卫生/食品安全/吃出异物」→ food-safety
+
+**监控类**：
+「扫描/搜一下 XX 的舆情」「有没有新的负面」
+「最近 XX 有没有出事」「帮我盯着 XX」
+
+**声明类**：
+「写声明」「发道歉」「律师函」「回应口径」「官方回应」
+
+### English / Mixed Triggers
+
+- "crisis", "PR crisis", "brand crisis", "reputation crisis"
+- "negative news", "viral negative", "going viral for the wrong reasons"
+- "statement", "press release", "apology letter", "public response"
+- "what should I say", "how to respond", "damage control"
+- "somebody posted about us", "we're getting attacked online"
+- "help me handle this situation", "crisis communication"
+- "legal threat", "cease and desist", "lawyer letter"
+
+### 触发判定优先级
+
+1. 如果用户描述了具体危机事件 → 立即归类匹配 playbook
+2. 如果描述模糊 → 追问确认事件类型和严重程度再归类
+3. 如果用户只是在讨论/学习危机公关概念 → 不触发 playbook，用 knowledge/ 回答问题
 
 ## 工作流
 
