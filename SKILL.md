@@ -28,6 +28,7 @@
 | 个人被网暴/人肉 | `playbooks/online-mob.md` |
 | 被大V引导粉丝攻击 | `playbooks/creator-mob.md` |
 | 创作者/主播失言翻车 | `playbooks/celebrity-gaffe.md` |
+| 餐饮食品安全 | `playbooks/food-safety.md` |
 
 ### 第二步：评估严重程度
 
